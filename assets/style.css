@@ -1,5 +1,5 @@
 body {
-    background-color: bisque;
+    background-color: rgb(46, 95, 141);
     font-family: Bai Jamjuree;
 }
 
@@ -37,7 +37,7 @@ footer p {
 }
 .cartao__conteudo h3
 {
-    background: tomato;
+    background: rgb(0, 47, 201);
     text-align: left;
     padding: 0.5rem;
     position: absolute;
