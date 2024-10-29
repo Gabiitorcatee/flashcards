@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap'); /* Importando a fonte Poppins */
+
+/* Variáveis CSS */
+:root {
+    --text-color: #ffffff;
+    --card-front-color: #51BBA9;
+    --card-back-color: #144480;
+}
+
+/* Estilos Globais */
 body {
     font-family: 'Poppins', sans-serif; /* Usando a fonte importada */
     background-color: #6e57f0; /* Cor de fundo */
@@ -5,98 +15,92 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/* Footer */
 footer {
     background-color: black;
     color: white;
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 0.2rem;
+    height: 2rem; /* Ajuste da altura para maior visibilidade */
 }
 
 footer p {
     text-align: center;
     font-size: 0.6rem;
-    margin-top: 0.5rem;
+    margin: 0; /* Removendo margem extra */
+    padding-top: 0.5rem;
 }
 
+/* Container */
 #container {
     display: flex;
 }
 
+/* Estilos do Cartão */
 .cartao {
-    margin: 1rem 1rem;
+    margin: 1rem;
     background-color: rgb(0, 89, 255);
     height: 20rem;
     flex-grow: 1;
-    flex-basis: calc(33% -6rem);
+    flex-basis: calc(33% - 2rem); /* Corrigido o cálculo do espaço */
+    perspective: 1000px; /* Adiciona perspectiva para o efeito de rotação */
 }
-.cartao__conteudo
-{
-    text-align: center;
-  background-color: aquamarine;
-  height: 100%;
-}
-.cartao__conteudo h3
-{
-    background: rgb(101, 29, 235);
-    text-align: left;
-    padding: 0.5rem;
-    position: absolute;
-    margin: 0.6rem;
-    border-radius: 0.6rem;
-    font-size: 1vw;
-}
+
 .cartao__conteudo {
     text-align: center;
     height: 100%;
     background-color: var(--card-front-color);
-}
-.cartao__conteudo__pergunta p{
-    color: var(--text-color);
-    font-weight: 500;
-}
-.cartao__conteudo__resposta p{
-    color: var(--card-back-color);
-    font-weight: 700;
-}
-.cartao:hover .cartao__conteudo {
-    transform: rotateY(180deg);
-}
-.cartao__conteudo {
-    background-color: var(--card-front-color);
-    text-align: center;
-    height: 100%;
     transform-style: preserve-3d;
     transition: transform 300ms ease-in-out;
+    position: relative;
 }
+
+.cartao:hover .cartao__conteudo {
+    transform: rotateY(180deg); /* Gira o cartão ao passar o mouse */
+}
+
+/* Estilos do Título */
 .cartao__conteudo h3 {
     color: var(--text-color);
+    background: rgb(101, 29, 235);
     border: 1px solid var(--text-color);
     text-align: left;
     padding: 0.5rem;
     position: absolute;
-    margin: 0.6rem;
+    top: 0.6rem;
+    left: 0.6rem;
     border-radius: 0.6rem;
     font-size: 1vw;
-    backface-visibility: hidden;
+    backface-visibility: hidden; /* Esconde o verso durante a rotação */
 }
+
+/* Conteúdo da Pergunta e Resposta */
 .cartao__conteudo__pergunta,
 .cartao__conteudo__resposta {
-    backface-visibility: hidden;
-}
-.cartao__conteudo__resposta {
-    transform: rotateY(180deg);
-}
-.cartao__conteudo__pergunta,
-.cartao__conteudo__resposta {
-    backface-visibility: hidden;
+    backface-visibility: hidden; /* Esconde o verso durante a rotação */
     position: absolute;
     height: 100%;
     width: 100%;
+    top: 0;
+    left: 0;
 }
-.cartao__conteudo p {
-    margin-top: 1rem;
+
+.cartao__conteudo__pergunta p {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg); /* Roda o conteúdo da resposta */
+}
+
+.cartao__conteudo__resposta p {
+    color: var(--card-back-color);
+    font-weight: 700;
     padding: 2rem;
     margin-top: 4rem;
 }
