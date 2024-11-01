@@ -31,23 +31,25 @@ footer p {
     font-size: 0.6rem;
     margin: 0; /* Removendo margem extra */
     padding-top: 0.5rem;
-}
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around; /* Espaçamento uniforme entre os cartões */
-        width: 100%; /* Garante que o contêiner ocupe toda a largura */
-        max-width: 1200px; /* Ajuste opcional para limitar a largura total */
-    }
+    
 }
 
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Três colunas de largura igual */
+        gap: 1rem; /* Espaçamento entre os cartões */
+        width: 100%; /* Garante que o contêiner ocupe toda a largura */
+        max-width: 1200px; /* Ajuste opcional para limitar a largura total */
+        grid-template-columns: repeat(3, 1fr); /* Três colunas de largura igual */
+        gap: 1rem; /* Espaçamento entre os cartões */
+    }
+
 .cartao {
-    margin: 1rem;
     background-color: rgb(28, 0, 128);
-    height: 20rem;
-    width: calc(33.33% - 2rem); /* Ajuste de largura */
     perspective: 1000px;
     box-sizing: border-box;
+    justify-content: center;
+    padding: 1rem;
 }
 
 .cartao__conteudo {
