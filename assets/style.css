@@ -38,7 +38,6 @@ footer p {
         justify-content: space-around; /* Espaçamento uniforme entre os cartões */
         width: 100%; /* Garante que o contêiner ocupe toda a largura */
         max-width: 1200px; /* Ajuste opcional para limitar a largura total */
-        margin: 0 auto; /* Centraliza o contêiner na página */
     }
 }
 
