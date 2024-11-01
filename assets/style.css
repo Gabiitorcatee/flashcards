@@ -33,20 +33,20 @@ footer p {
     padding-top: 0.5rem;
 }
 
-/* Container */
-#container {
+.container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centraliza os itens se houver espaço extra */
 }
 
-/* Estilos do Cartão */
 .cartao {
     margin: 1rem;
     background-color: rgb(28, 0, 128);
     height: 20rem;
-    flex-grow: 1;
-    flex-basis: calc(33% - 2rem); /* Corrigido o cálculo do espaço */
+    flex-basis: calc(33.33% - 2rem); /* divide em três colunas */
     perspective: 1000px; /* Adiciona perspectiva para o efeito de rotação */
 }
+
 
 .cartao__conteudo {
     text-align: center;
