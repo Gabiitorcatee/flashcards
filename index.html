@@ -18,7 +18,7 @@
                         <p> O que é JavaScript?</p>
                     </div>
                     <div class="cartao__conteudo__resposta">
-                        <p>O JavaScript é uma linguagem da Programação</p>
+                        <img src="link" alt="nome">
                     </div>
                 </div>
             </article>
@@ -27,8 +27,8 @@
                     <h3>Programação</h3>
                     <div class="cartao__conteudo__pergunta"> <p> Oque é CSS?</p>
                     </div>
-                    <div class="cartao__conteudo__resposta"> <p> O CSS é uma linguagem de estilização</p>
-                    </div>
+                    <div class="cartao__conteudo__resposta"> 
+                        <img src="link" alt="nome">
                 </div>
             </article>
             <article class="cartao" onclick="flipCard(this)">
@@ -36,7 +36,8 @@
                     <h3> Programação</h3>
                     <div class="cartao__conteudo__pergunta"> <p> ?</p>
                     </div>
-                    <div class="cartao__conteudo__resposta"> <p>some img</p>
+                    <div class="cartao__conteudo__resposta"> 
+                        <img src="link" alt="nome">
                     </div>
                 </div>
             </article>
@@ -45,7 +46,8 @@
                     <h3> Programação</h3>
                     <div class="cartao__conteudo__pergunta"> <p> oque oque é </p>
                     </div>
-                    <div class="cartao__conteudo__resposta"> <p>some img</p>
+                    <div class="cartao__conteudo__resposta">  
+                        <img src="link" alt="nome">
                     </div>
                 </div>
             </article>
@@ -54,7 +56,8 @@
                     <h3> Programação</h3>
                     <div class="cartao__conteudo__pergunta"> <p> O?</p>
                     </div>
-                    <div class="cartao__conteudo__resposta"> <p>img</p>
+                    <div class="cartao__conteudo__resposta">
+                        <img src="link" alt="nome">
                     </div>
                 </div>
             </article>
@@ -63,7 +66,8 @@
                     <h3> Programação</h3>
                     <div class="cartao__conteudo__pergunta"> <p>t?</p>
                     </div>
-                    <div class="cartao__conteudo__resposta"> <p> some imgs</p>
+                    <div class="cartao__conteudo__resposta">
+                        <img src="link" alt="nome">
                     </div>
                 </div>
             </article>
@@ -72,7 +76,8 @@
                     <h3> Programação</h3>
                     <div class="cartao__conteudo__pergunta"> <p> ipt?</p>
                     </div>
-                    <div class="cartao__conteudo__resposta"> <p>O J</p>
+                    <div class="cartao__conteudo__resposta">
+                        <img src="link" alt="nome">
                     </div>
                 </div>
             </article>
@@ -81,7 +86,8 @@
                     <h3> Programação</h3>
                     <div class="cartao__conteudo__pergunta"> <p>ipt?</p>
                     </div>
-                    <div class="cartao__conteudo__resposta"> <p>mação</p>
+                    <div class="cartao__conteudo__resposta">
+                         <img src="link" alt="nome">
                     </div>
                 </div>
             </article>
@@ -92,7 +98,7 @@
                      <p>Script?</p>
                     </div>
                     <div class="cartao__conteudo__resposta">
-                        <p>ção</p>
+                        <img src="link" alt="nome">
                     </div>
                 </div>
             </article>
@@ -103,7 +109,7 @@
                         <p> ript?</p>
                     </div>
                     <div class="cartao__conteudo__resposta">
-                        <p> Programo</p>
+                        <img src="link" alt="nome">
                     </div>
                 </div>
             </article>
@@ -114,7 +120,7 @@
                         <p> avaScript?</p>
                     </div>
                     <div class="cartao__conteudo__resposta">
-                        <p> linguagem da Programação</p>
+                        <img src="link" alt="nome">
                     </div>
                 </div>
             </article>
@@ -125,7 +131,7 @@
                         <p> O que é ?</p>
                     </div>
                     <div class="cartao__conteudo__resposta">
-                        <p>ação</p>
+                        <img src="link" alt="nome">
                     </div>
                 </div>
             </article>
@@ -136,9 +142,58 @@
         <p> Projeto desenvolvido pela Alura, sem fins lucrativos</p>
     </footer>
     <script>
-        function flipCard(card) {
-        card.classList.toggle('flipped');
-        }
+        let firstCard, secondCard;
+let hasFlippedCard = false;
+let lockBoard = false;
+
+function flipCard(card) {
+    if (lockBoard) return; // Ignora cliques enquanto o tabuleiro está bloqueado
+    if (card === firstCard) return; // Ignora se o mesmo cartão for clicado
+
+    card.classList.toggle('flipped'); // Vira o cartão
+
+    if (!hasFlippedCard) {
+        hasFlippedCard = true;
+        firstCard = card; // Primeiro cartão clicado
+        return;
+    }
+
+    secondCard = card; // Segundo cartão clicado
+    checkForMatch(); // Verifica se há um par
+}
+
+function checkForMatch() {
+    const isMatch = firstCard.querySelector('.cartao__conteudo__pergunta p').textContent === secondCard.querySelector('.cartao__conteudo__pergunta p').textContent;
+
+    if (isMatch) {
+        disableCards(); // Desativa os cartões se forem iguais
+    } else {
+        unflipCards(); // Desvira os cartões se não forem iguais
+    }
+}
+
+function disableCards() {
+    firstCard.removeEventListener('click', flipCard); // Remove o evento de clique do primeiro cartão
+    secondCard.removeEventListener('click', flipCard); // Remove o evento de clique do segundo cartão
+
+    resetBoard(); // Reseta a variável do tabuleiro
+}
+
+function unflipCards() {
+    lockBoard = true; // Bloqueia o tabuleiro para evitar novos cliques
+
+    setTimeout(() => {
+        firstCard.classList.remove('flipped'); // Desvira o primeiro cartão
+        secondCard.classList.remove('flipped'); // Desvira o segundo cartão
+        resetBoard(); // Reseta a variável do tabuleiro
+    }, 1000); // Tempo para mostrar os cartões antes de desvirar
+}
+
+function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false]; // Reseta as variáveis
+    [firstCard, secondCard] = [null, null]; // Reseta os cartões
+}
+
     </script>
 
 </body>
