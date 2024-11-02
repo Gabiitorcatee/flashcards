@@ -14,76 +14,40 @@ body {
     color: #0a0a0a;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
 }
 
-/* Footer */
-footer {
-    background-color: black;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 2rem; /* Ajuste da altura para maior visibilidade */
-}
 
-footer p {
-    text-align: center;
-    font-size: 0.6rem;
-    margin: 0; /* Removendo margem extra */
-    padding-top: 0.5rem;
-    
-}
-
-#container {
+.container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Três colunas de largura igual */
+        grid-template-columns: repeat(3, 1fr); /* Três colunas de largura igual */
         gap: 1rem; /* Espaçamento entre os cartões */
-        padding: 2rem;
+        width: 100%;
         max-width: 1200px;
     }
 
 .cartao {
     background-color: rgb(28, 0, 128);
-    height: 20rem;
+    height: 200px;
     perspective: 1000px;
-    box-sizing: border-box;
-    overflow: hidden;
+    width: calc(33.33% - 1rem);
+    margin: 1rem;
 }
 
 .cartao__conteudo {
     text-align: center;
     height: 100%;
-    width: 100%;
     background-color: var(--card-front-color);
     transform-style: preserve-3d;
-    transition: transform 300ms ease-in-out;
+    transition: transform 0.6s;
     position: relative;
 }
 .cartao.flipped .cartao__conteudo {
     transform: rotateY(180deg); /* Gira o cartão ao passar o mouse */
 }
 
-/* Estilos do Título */
-.cartao__conteudo h3 {
-    color: var(--text-color);
-    background: rgb(101, 29, 235);
-    border: 1px solid var(--text-color);
-    text-align: left;
-    padding: 0.5rem;
-    position: absolute;
-    top: 0.6rem;
-    left: 0.6rem;
-    border-radius: 0.6rem;
-    font-size: 1vw;
-    backface-visibility: hidden; /* Esconde o verso durante a rotação */
-}
-
-/* Conteúdo da Pergunta e Resposta */
 .cartao__conteudo__pergunta,
 .cartao__conteudo__resposta {
-    backface-visibility: hidden; /* Esconde o verso durante a rotação */
+    backface-visibility: hidden;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -91,22 +55,25 @@ footer p {
     left: 0;
 }
 
-.cartao__conteudo__pergunta p,
-.cartao__conteudo__resposta p {
-    padding: 2rem;
-    margin-top: 4rem;
-}
-
-.cartao__conteudo__pergunta p {
-    color: var(--text-color);
-    font-weight: 500;
-}
-
 .cartao__conteudo__resposta {
     transform: rotateY(180deg);
 }
 
-.cartao__conteudo__resposta p {
-    color: var(--card-back-color);
-    font-weight: 700;
+.cartao__conteudo__pergunta p, .cartao__conteudo__resposta p {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2rem;
+    text-align: center;
+    font-size: 0.6rem;
+    padding-top: 0.5rem;
 }
