@@ -11,7 +11,7 @@
 <body>
     <main>
         <section id="container">
-            <article class="cartao">
+            <article class="cartao" onclick="flipCard(this)">
                 <div class="cartao__conteudo">
                     <h3> Programação</h3>
                     <div class="cartao__conteudo__pergunta">
@@ -135,6 +135,11 @@
     <footer>
         <p> Projeto desenvolvido pela Alura, sem fins lucrativos</p>
     </footer>
+    <script>
+        function flipCard(card) {
+        card.classList.toggle('flipped');
+        }
+    </script>
 
 </body>
 

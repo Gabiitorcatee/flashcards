@@ -61,8 +61,7 @@ footer p {
     transition: transform 300ms ease-in-out;
     position: relative;
 }
-
-.cartao:hover .cartao__conteudo {
+.cartao.flipped .cartao__conteudo {
     transform: rotateY(180deg); /* Gira o cartão ao passar o mouse */
 }
 
