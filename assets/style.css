@@ -14,6 +14,8 @@ body {
     color: #0a0a0a;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 /* Footer */
@@ -34,27 +36,26 @@ footer p {
     
 }
 
-    .container {
+#container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Três colunas de largura igual */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Três colunas de largura igual */
         gap: 1rem; /* Espaçamento entre os cartões */
-        width: 100%; /* Garante que o contêiner ocupe toda a largura */
-        max-width: 1200px; /* Ajuste opcional para limitar a largura total */
-        grid-template-columns: repeat(3, 1fr); /* Três colunas de largura igual */
-        gap: 1rem; /* Espaçamento entre os cartões */
+        padding: 2rem;
+        max-width: 1200px;
     }
 
 .cartao {
     background-color: rgb(28, 0, 128);
+    height: 20rem;
     perspective: 1000px;
     box-sizing: border-box;
-    justify-content: center;
-    padding: 1rem;
+    overflow: hidden;
 }
 
 .cartao__conteudo {
     text-align: center;
     height: 100%;
+    width: 100%;
     background-color: var(--card-front-color);
     transform-style: preserve-3d;
     transition: transform 300ms ease-in-out;
@@ -91,20 +92,22 @@ footer p {
     left: 0;
 }
 
-.cartao__conteudo__pergunta p {
-    color: var(--text-color);
-    font-weight: 500;
+.cartao__conteudo__pergunta p,
+.cartao__conteudo__resposta p {
     padding: 2rem;
     margin-top: 4rem;
 }
 
+.cartao__conteudo__pergunta p {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
 .cartao__conteudo__resposta {
-    transform: rotateY(180deg); /* Roda o conteúdo da resposta */
+    transform: rotateY(180deg);
 }
 
 .cartao__conteudo__resposta p {
     color: var(--card-back-color);
     font-weight: 700;
-    padding: 2rem;
-    margin-top: 4rem;
 }
