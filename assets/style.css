@@ -33,6 +33,13 @@ body {
     margin: 1rem;
 }
 
+.imagem-cartao{
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 10px;
+}
+
 .cartao__conteudo {
     text-align: center;
     height: 100%;
