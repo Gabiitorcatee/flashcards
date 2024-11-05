@@ -142,60 +142,8 @@
     <footer>
         <p> Projeto desenvolvido pela Alura, sem fins lucrativos</p>
     </footer>
-    <script>
-        let firstCard, secondCard;
-let hasFlippedCard = false;
-let lockBoard = false;
 
-function flipCard(card) {
-    if (lockBoard) return; // Ignora cliques enquanto o tabuleiro está bloqueado
-    if (card === firstCard) return; // Ignora se o mesmo cartão for clicado
-
-    card.classList.toggle('flipped'); // Vira o cartão
-
-    if (!hasFlippedCard) {
-        hasFlippedCard = true;
-        firstCard = card; // Primeiro cartão clicado
-        return;
-    }
-
-    secondCard = card; // Segundo cartão clicado
-    checkForMatch(); // Verifica se há um par
-}
-
-function checkForMatch() {
-    const isMatch = firstCard.querySelector('.cartao__conteudo__pergunta p').textContent === secondCard.querySelector('.cartao__conteudo__pergunta p').textContent;
-
-    if (isMatch) {
-        disableCards(); // Desativa os cartões se forem iguais
-    } else {
-        unflipCards(); // Desvira os cartões se não forem iguais
-    }
-}
-
-function disableCards() {
-    firstCard.removeEventListener('click', flipCard); // Remove o evento de clique do primeiro cartão
-    secondCard.removeEventListener('click', flipCard); // Remove o evento de clique do segundo cartão
-
-    resetBoard(); // Reseta a variável do tabuleiro
-}
-
-function unflipCards() {
-    lockBoard = true; // Bloqueia o tabuleiro para evitar novos cliques
-
-    setTimeout(() => {
-        firstCard.classList.remove('flipped'); // Desvira o primeiro cartão
-        secondCard.classList.remove('flipped'); // Desvira o segundo cartão
-        resetBoard(); // Reseta a variável do tabuleiro
-    }, 1000); // Tempo para mostrar os cartões antes de desvirar
-}
-
-function resetBoard() {
-    [hasFlippedCard, lockBoard] = [false, false]; // Reseta as variáveis
-    [firstCard, secondCard] = [null, null]; // Reseta os cartões
-}
-
-    </script>
+    <script src="script.js"></script>
 
 </body>
 
