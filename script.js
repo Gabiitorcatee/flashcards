@@ -1,112 +1,58 @@
+// Seleciona todos os cartões
+const cards = document.querySelectorAll('.cartao');
+
+// Adiciona o evento de clique a cada cartão
+cards.forEach(card => {
+    card.addEventListener('click', () => flipCard(card));
+});
+
 let firstCard, secondCard;
 let hasFlippedCard = false;
 let lockBoard = false;
 
 function flipCard(card) {
-    if (lockBoard) return; // Ignora cliques enquanto o tabuleiro está bloqueado
-    if (card === firstCard) return; // Ignora se o mesmo cartão for clicado
+    if (lockBoard) return;
+    if (card === firstCard) return;
 
-    card.classList.toggle('flipped'); // Vira o cartão
+    card.classList.toggle('flipped');
 
     if (!hasFlippedCard) {
-        // Primeira vez que um cartão é clicado
         hasFlippedCard = true;
-        firstCard = card; // Primeiro cartão clicado
+        firstCard = card;
         return;
     }
 
-    // Segunda vez que um cartão é clicado
-    secondCard = card; // Segundo cartão clicado
-    checkForMatch(); // Verifica se há um par
+    secondCard = card;
+    checkForMatch();
 }
 
 function checkForMatch() {
-    const firstImage = firstCard.querySelector('.imagem-cartao').src;
-    const secondImage = secondCard.querySelector('.imagem-cartao').src;
-    const isMatch = firstImage === secondImage; // Verifica se as imagens são iguais
+    const isMatch = firstCard.querySelector('.imagem-cartao').src === secondCard.querySelector('.imagem-cartao').src;
 
     if (isMatch) {
-        disableCards(); // Desativa os cartões se forem iguais
+        disableCards();
     } else {
-        unflipCards(let firstCard, secondCard;
-            let hasFlippedCard = false;
-            let lockBoard = false;
-            
-            function flipCard(card) {
-                if (lockBoard) return; // Ignora cliques enquanto o tabuleiro está bloqueado
-                if (card === firstCard) return; // Ignora se o mesmo cartão for clicado
-            
-                card.classList.toggle('flipped'); // Vira o cartão
-            
-                if (!hasFlippedCard) {
-                    // Primeira vez que um cartão é clicado
-                    hasFlippedCard = true;
-                    firstCard = card; // Primeiro cartão clicado
-                    return;
-                }
-            
-                // Segunda vez que um cartão é clicado
-                secondCard = card; // Segundo cartão clicado
-                checkForMatch(); // Verifica se há um par
-            }
-            
-            function checkForMatch() {
-                const firstImage = firstCard.querySelector('.imagem-cartao').src;
-                const secondImage = secondCard.querySelector('.imagem-cartao').src;
-                const isMatch = firstImage === secondImage; // Verifica se as imagens são iguais
-            
-                if (isMatch) {
-                    disableCards(); // Desativa os cartões se forem iguais
-                } else {
-                    unflipCards(); // Desvira os cartões se não forem iguais
-                }
-            }
-            
-            function disableCards() {
-                // Remove o evento de clique dos cartões correspondentes
-                firstCard.removeEventListener('click', flipCard);
-                secondCard.removeEventListener('click', flipCard);
-            
-                resetBoard(); // Reseta as variáveis para o próximo par
-            }
-            
-            function unflipCards() {
-                lockBoard = true; // Bloqueia o tabuleiro temporariamente
-            
-                setTimeout(() => {
-                    firstCard.classList.remove('flipped'); // Desvira o primeiro cartão
-                    secondCard.classList.remove('flipped'); // Desvira o segundo cartão
-                    resetBoard(); // Reseta as variáveis para o próximo par
-                }, 1000); // Tempo para mostrar os cartões antes de desvirá-los
-            }
-            
-            function resetBoard() {
-                [hasFlippedCard, lockBoard] = [false, false]; // Reseta as variáveis
-                [firstCard, secondCard] = [null, null]; // Limpa os cartões virados
-            }
-            ); // Desvira os cartões se não forem iguais
+        unflipCards();
     }
 }
 
 function disableCards() {
-    // Remove o evento de clique dos cartões correspondentes
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-
-    resetBoard(); // Reseta as variáveis para o próximo par
+    resetBoard();
 }
 
 function unflipCards() {
-    lockBoard = true; // Bloqueia o tabuleiro temporariamente
+    lockBoard = true;
 
     setTimeout(() => {
-        firstCard.classList.remove('flipped'); // Desvira o primeiro cartão
-        secondCard.classList.remove('flipped'); // Desvira o segundo cartão
-        resetBoard(); // Reseta as variáveis para o próximo par
-    }, 1000); // Tempo para mostrar os cartões antes de desvirá-los
+        firstCard.classList.remove('flipped');
+        secondCard.classList.remove('flipped');
+        resetBoard();
+    }, 1000);
 }
 
 function resetBoard() {
-    [hasFlippedCard, lockBoard] = [false, false]; // Reseta as variáveis
-    [firstCard, secondCard] = [null, null]; // Limpa os cartões virados
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
 }
