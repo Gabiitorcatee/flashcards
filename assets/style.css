@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap'); /* Importando a fonte Poppins */
 
-/* Variáveis CSS */
+
 :root {
     --text-color: #ffffff;
     --card-front-color: #6451bb;
     --card-back-color: #000000;
 }
 
-/* Estilos Globais */
 body {
-    font-family: 'Poppins', sans-serif; /* Usando a fonte importada */
-    background-color: #a286cf; /* Cor de fundo */
+    font-family: 'Poppins', sans-serif; 
+    background-color: #a286cf; 
     color: #0a0a0a;
     margin: 0;
     padding: 0;
@@ -19,8 +18,8 @@ body {
 
 #container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Três colunas de largura igual */
-        gap: 1rem; /* Espaçamento entre os cartões */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+        gap: 1rem; 
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
@@ -43,7 +42,7 @@ body {
     position: relative;
 }
 .cartao.flipped .cartao__conteudo {
-    transform: rotateY(180deg); /* Gira o cartão ao passar o mouse */
+    transform: rotateY(180deg); 
 }
 
 .imagem-cartao{
