@@ -42,7 +42,11 @@ body {
     position: relative;
 }
 .cartao.flipped .cartao__conteudo {
-    transform: rotateY(180deg); 
+    transform: roInclua mensagens de debug (console.log) para rastrear erros.
+    Conferir a execução no navegador: Abra o console (F12) e veja se há erros de JavaScript.
+    
+    CSS Atualizado
+    tateY(180deg); 
 }
 
 .imagem-cartao{
