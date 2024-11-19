@@ -1,7 +1,6 @@
-// Seleciona todos os cartões
+
 const cards = document.querySelectorAll('.cartao');
 
-// Adiciona o evento de clique a cada cartão
 cards.forEach(card => {
     card.addEventListener('click', () => flipCard(card));
 });
@@ -9,6 +8,7 @@ cards.forEach(card => {
 let firstCard, secondCard;
 let hasFlippedCard = false;
 let lockBoard = false;
+let matchedPairs = 0;
 
 function flipCard(card) {
     if (lockBoard) return;
@@ -39,6 +39,13 @@ function checkForMatch() {
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
+
+    matchedPairs += 1;
+
+    if (matchedPairs === cards.length / 2) {
+        setTimeout(shuffleCards, 1000); 
+    }
+
     resetBoard();
 }
 
@@ -56,3 +63,18 @@ function resetBoard() {
     [hasFlippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
 }
+
+function shuffleCards() {
+    matchedPairs = 0; 
+
+    const shuffledCards = Array.from(cards);
+    shuffledCards.sort(() => Math.random() - 0.5);
+
+    const container = document.querySelector('.seu-container'); 
+    shuffledCards.forEach(card => container.appendChild(card));
+
+    cards.forEach(card => card.classList.remove('flipped'));
+
+    cards.forEach(card => card.addEventListener('click', () => flipCard(card)));
+}
+
