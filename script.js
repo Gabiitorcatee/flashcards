@@ -1,5 +1,6 @@
 const cards = document.querySelectorAll('.cartao');
-const container = document.querySelector('.seu-container'); // Certifique-se de que essa classe existe
+const container = document.querySelector('#container');
+
 
 let firstCard, secondCard;
 let hasFlippedCard = false;
