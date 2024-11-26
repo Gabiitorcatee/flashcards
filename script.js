@@ -67,13 +67,14 @@ function resetBoard() {
 }
 
 function shuffleCards() {
-    matchedPairs = 0;
+    matchedPairs = 0; 
 
-    const shuffledCards = Array.from(cards);
-    shuffledCards.sort(() => Math.random() - 0.5);
+    const shuffledCards = Array.from(cards); 
+    shuffledCards.sort(() => Math.random() - 0.5); 
 
+    const container = document.querySelector('#container'); 
     shuffledCards.forEach(card => {
-        card.classList.remove('flipped'); // Garante que nenhum cartão fique virado
-        container.appendChild(card); // Reorganiza no DOM
+        container.appendChild(card); 
+        card.classList.remove('flipped');
     });
 }
