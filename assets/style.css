@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap'); /* Importando a fonte Poppins */
 
-
 :root {
     --text-color: #ffffff;
     --card-front-color: #6451bb;
@@ -15,16 +14,15 @@ body {
     padding: 0;
 }
 
-
 #container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-        gap: 1rem; 
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1rem;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 1rem; 
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
 
 .cartao {
     background-color: rgb(28, 0, 128);
@@ -41,20 +39,18 @@ body {
     transition: transform 0.6s;
     position: relative;
 }
-.cartao.flipped .cartao__conteudo {
-    transform: 
 
-    tateY(180deg); 
+.cartao.flipped .cartao__conteudo {
+    transform: rotateY(180deg); 
 }
 
-.imagem-cartao{
+.imagem-cartao {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
     display: block;
-    
-    }
+}
 
 .cartao__conteudo__pergunta,
 .cartao__conteudo__resposta {
@@ -67,14 +63,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Frecreio.com.br%2Fnoticias%2Fentretenimento%2Fcomo-disney-foi-criada.phtml&psig=AOvVaw1RH-3XQqXMA7OrETtmLOy8&ust=1732706020153000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOCi2o3v-YkDFQAAAAAdAAAAABAE');
+}
+
+.cartao__conteudo__pergunta {
+    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Frecreio.com.br%2Fnoticias%2Fentretenimento%2Fcomo-disney-foi-criada.phtml&psig=AOvVaw1RH-3XQqXMA7OrETtmLOy8&ust=1732706020153000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOCi2o3v-YkDFQAAAAAdAAAAABAE'); /* Imagem da frente do cartão */
+    background-size: cover;
+    background-position: center;
+    background-color: var(--card-front-color); 
 }
 
 .cartao__conteudo__resposta {
+    background-color: var(--card-back-color); 
     transform: rotateY(180deg);
 }
 
-.cartao__conteudo__pergunta p, .cartao__conteudo__resposta p {
+.cartao__conteudo__pergunta p, 
+.cartao__conteudo__resposta p {
     color: var(--text-color);
     font-weight: 500;
     padding: 2rem;
@@ -92,4 +96,3 @@ footer {
     font-size: 0.6rem;
     padding-top: 0.5rem;
 }
-
