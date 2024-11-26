@@ -42,10 +42,8 @@ body {
     position: relative;
 }
 .cartao.flipped .cartao__conteudo {
-    transform: roInclua mensagens de debug (console.log) para rastrear erros.
-    Conferir a execução no navegador: Abra o console (F12) e veja se há erros de JavaScript.
-    
-    CSS Atualizado
+    transform: 
+
     tateY(180deg); 
 }
 
@@ -69,6 +67,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Frecreio.com.br%2Fnoticias%2Fentretenimento%2Fcomo-disney-foi-criada.phtml&psig=AOvVaw1RH-3XQqXMA7OrETtmLOy8&ust=1732706020153000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOCi2o3v-YkDFQAAAAAdAAAAABAE');
 }
 
 .cartao__conteudo__resposta {
