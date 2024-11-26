@@ -1,20 +1,20 @@
-
 const cards = document.querySelectorAll('.cartao');
-
-cards.forEach(card => {
-    card.addEventListener('click', () => flipCard(card));
-});
+const container = document.querySelector('.seu-container'); // Certifique-se de que essa classe existe
 
 let firstCard, secondCard;
 let hasFlippedCard = false;
 let lockBoard = false;
 let matchedPairs = 0;
 
+cards.forEach(card => {
+    card.addEventListener('click', () => flipCard(card));
+});
+
 function flipCard(card) {
     if (lockBoard) return;
     if (card === firstCard) return;
 
-    card.classList.toggle('flipped');
+    card.classList.add('flipped');
 
     if (!hasFlippedCard) {
         hasFlippedCard = true;
@@ -27,9 +27,10 @@ function flipCard(card) {
 }
 
 function checkForMatch() {
-    const isMatch = firstCard.querySelector('.imagem-cartao').src === secondCard.querySelector('.imagem-cartao').src;
+    const firstImg = firstCard.querySelector('.imagem-cartao').src;
+    const secondImg = secondCard.querySelector('.imagem-cartao').src;
 
-    if (isMatch) {
+    if (firstImg === secondImg) {
         disableCards();
     } else {
         unflipCards();
@@ -37,13 +38,13 @@ function checkForMatch() {
 }
 
 function disableCards() {
-    firstCard.removeEventListener('click', flipCard);
-    secondCard.removeEventListener('click', flipCard);
+    firstCard.removeEventListener('click', () => flipCard(firstCard));
+    secondCard.removeEventListener('click', () => flipCard(secondCard));
 
-    matchedPairs += 1;
+    matchedPairs++;
 
     if (matchedPairs === cards.length / 2) {
-        setTimeout(shuffleCards, 1000); 
+        setTimeout(shuffleCards, 1000);
     }
 
     resetBoard();
@@ -65,16 +66,13 @@ function resetBoard() {
 }
 
 function shuffleCards() {
-    matchedPairs = 0; 
+    matchedPairs = 0;
 
     const shuffledCards = Array.from(cards);
     shuffledCards.sort(() => Math.random() - 0.5);
 
-    const container = document.querySelector('.seu-container'); 
-    shuffledCards.forEach(card => container.appendChild(card));
-
-    cards.forEach(card => card.classList.remove('flipped'));
-
-    cards.forEach(card => card.addEventListener('click', () => flipCard(card)));
+    shuffledCards.forEach(card => {
+        card.classList.remove('flipped'); // Garante que nenhum cartão fique virado
+        container.appendChild(card); // Reorganiza no DOM
+    });
 }
-
