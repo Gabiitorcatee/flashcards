@@ -16,6 +16,7 @@ body {
 
 #container {
     display: flex;
+    grid-template-columns: repeat(4, 1fr);
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
