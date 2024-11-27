@@ -15,9 +15,8 @@ body {
 }
 
 #container {
-    display: flex;
-    grid-template-columns: repeat(4, 1fr);
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     justify-content: center;
     align-items: center;
@@ -25,7 +24,8 @@ body {
 
 .cartao {
     background-color: rgb(28, 0, 128);
-    height: 200px;
+    height: 250px;
+    width: 200px;
     perspective: 1000px;
     border-radius: 10px;
 }
@@ -79,7 +79,7 @@ body {
 .cartao__conteudo__resposta p {
     color: var(--text-color);
     font-weight: 500;
-    padding: 2rem;
+    padding: 1rem;
     margin-top: 4rem;
 }
 
