@@ -26,13 +26,17 @@ body {
     background-color: rgb(28, 0, 128);
     height: 250px;
     width: 250px;
+    margin: 20px;
     perspective: 1000px;
     border-radius: 10px;
 }
 
-.cartao__conteudo {
+.cartao__conteudo h3 {
     text-align: center;
+    font-size: 20px;
+    font-weight: bold;
     height: 100%;
+    margin-bottom: 10px;
     background-color: var(--card-front-color);
     transform-style: preserve-3d;
     transition: transform 0.6s;
