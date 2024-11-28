@@ -4,6 +4,7 @@
     --text-color: #ffffff;
     --card-front-color: #6451bb;
     --card-back-color: #000000;
+    --card-front-dark-color: #3b2a6b;
 }
 
 body {
@@ -63,7 +64,7 @@ body {
     color: var(--text-color);
     position: absolute; /* Faz com que o título fique na frente da carta */
     width: 100%;
-    height: 50%; /* Faz o título ocupar apenas a metade superior do cartão */
+    height: 25%; 
     z-index: 2; /* Garante que o título esteja acima do conteúdo da frente */
 }
 
