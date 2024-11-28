@@ -67,7 +67,12 @@ body {
     height: 15%; 
     z-index: 2; /* Garante que o título esteja acima do conteúdo da frente */
     backface-visibility: hidden;
-    color: #3b2a6b;
+}
+
+
+/* Faz com que a faixa desapareça quando o cartão for virado */
+.cartao.flipped .cartao__conteudo h3 {
+    display: none;
 }
 
 .cartao__conteudo__pergunta,
