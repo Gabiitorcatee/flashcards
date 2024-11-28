@@ -57,7 +57,7 @@ body {
     font-weight: bold;
     height: 100%;
     margin: 0;
-    background-color: var(--card-front-color);
+    background-color: var(--card-front-dark-color);
     display: flex;
     justify-content: center;
     align-items: center;
